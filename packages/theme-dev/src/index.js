@@ -11,7 +11,11 @@ export default {
     theme: {
       autoPrefetch: 'in-view',
       menu: [],
-      menuUrl: 'main'
+      menuUrl: 'main',
+      colors: {
+        bodyBg: '#f1ddcf',
+        elementBg: '#fbfaf5',
+      }
     },
   },
   actions: {
