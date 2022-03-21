@@ -8,6 +8,7 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "frontity": "^1.17.2"
+    "frontity": "^1.17.2",
+    "@frontity/html2react": "^1.6.1"
   }
 }
