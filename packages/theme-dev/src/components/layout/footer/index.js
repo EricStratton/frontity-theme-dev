@@ -4,9 +4,9 @@ import {
   FooterContainer,
 } from './footer-elements';
 
-const Footer = () => {
+const Footer = ({ colors }) => {
   return (
-    <FooterContainer>
+    <FooterContainer color={colors.tumble}>
       This will be the footer.
     </FooterContainer>
   )

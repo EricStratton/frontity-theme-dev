@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'frontity';
 
+import Post from './../post';
 import {
   ListContainer,
 } from './list-elements';
@@ -10,13 +11,14 @@ const PostList = ({ state }) => {
 
   return (
     <ListContainer>
-      {data.items.map((item) => {
-        return (
-          <div key={item.id}>
-            {item.type} - {item.id} - {item.link}
-          </div>
-        );
-      })}
+      <main>
+        {data.items.map((item) => {
+          const post = state.source[item.type][item.id];
+          return (
+          <Post key={item.id} post={post} />
+          )
+        })}
+      </main>
     </ListContainer>
   )
 }

@@ -19,9 +19,7 @@ const Root = ({ state }) => {
       <Global styles={css(fixedGutembergTheme)} />
       <Global styles={globalStyle(colors)} />
       <Layout>
-        <main>
           <PostList />
-        </main>
       </Layout>
     </>
   );

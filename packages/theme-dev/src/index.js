@@ -1,6 +1,7 @@
 import Root from './components';
-import menuHandler from './handlers/menu-handler';
 
+import menuHandler from './handlers/menu-handler';
+import card from './processors/card';
 
 export default {
   name: 'theme-dev',
@@ -13,9 +14,12 @@ export default {
       menu: [],
       menuUrl: 'main',
       colors: {
-        bodyBg: '#f1ddcf',
-        elementBg: '#fbfaf5',
-      }
+        bodyBg: '#eff1f3',
+        tumble: '#d8b4a0',
+        terra: '#d77a61',
+        grey: '#dbd3d8',
+        gunmetal: '#223843',
+      },
     },
   },
   actions: {
@@ -27,7 +31,7 @@ export default {
   },
   libraries: {
     html2react: {
-      processors: [],
+      processors: [card],
     },
     source: {
       handlers: [menuHandler],

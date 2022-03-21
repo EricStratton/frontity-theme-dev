@@ -5,10 +5,10 @@ export const HeaderContainer = styled.header`
   position: relative;
   display: flex;
   align-items: center;
-  background-color: lightgray;
+  background-color: ${props => props.color};
+  justify-content: center;
 `;
 
 export const NavWrapper = styled.div`
-  position: absolute;
-  right: 6em;
+  
 `;

@@ -4,8 +4,14 @@ export const NavContainer = styled.nav`
   display: flex;
 `;
 
-export const NavItem = styled.div`
+export const NavMenu = styled.ul`
+  flex: 1;
+`;
+
+export const NavItem = styled.li`
+  display: inline;
   margin: 0 1em;
+  font-size: 2rem;
 
   &:first-of-type {
     margin-left: 0;
@@ -16,7 +22,7 @@ export const NavItem = styled.div`
   }
 `;
 
-export const NavItemWithChild = styled.div`
+export const NavItemWithChild = styled.li`
 
 `;
 

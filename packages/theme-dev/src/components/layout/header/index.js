@@ -6,9 +6,9 @@ import {
   NavWrapper,
 } from './header-elements';
 
-const Header = () => {
+const Header = ({ colors }) => {
   return (
-    <HeaderContainer>
+    <HeaderContainer color={colors.grey}>
       <NavWrapper>
         <Nav />
       </NavWrapper>

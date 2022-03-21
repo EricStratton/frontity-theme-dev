@@ -3,6 +3,7 @@ import { connect } from 'frontity';
 
 import {
   NavContainer,
+  NavMenu,
   NavItem,
   NavItemWithChild,
   ChildMenu,
@@ -13,33 +14,35 @@ const Nav = ({ state }) => {
 
   return (
     <NavContainer>
-      {items.map((item) => {
-        if (!item.child_items) {
-          return (
-            <NavItem key={item.ID}>
-              {item.title} {/* need link item */}
-            </NavItem>
-          );
-        } else {
-          const childItems = item.child_items;
-          return (
-            <NavItemWithChild key={item.ID}>
-              <NavItem>
-                {item.title}
+      <NavMenu>
+        {items.map((item) => {
+          if (!item.child_items) {
+            return (
+              <NavItem key={item.ID}>
+                {item.title} {/* need link item */}
               </NavItem>
-              <ChildMenu>
-                {childItems.map((childItem) => {
-                  return (
-                    <NavItem key={childItem.ID}>
-                      {childItem.title}
-                    </NavItem>
-                  );
-                })}
-              </ChildMenu>
-            </NavItemWithChild>
-          );
-        }
-      })}
+            );
+          } else {
+            const childItems = item.child_items;
+            return (
+              <NavItemWithChild key={item.ID}>
+                <NavItem>
+                  {item.title}
+                </NavItem>
+                <ChildMenu>
+                  {childItems.map((childItem) => {
+                    return (
+                      <NavItem key={childItem.ID}>
+                        {childItem.title}
+                      </NavItem>
+                    );
+                  })}
+                </ChildMenu>
+              </NavItemWithChild>
+            );
+          }
+        })}
+      </NavMenu>
     </NavContainer>
   )
 }
