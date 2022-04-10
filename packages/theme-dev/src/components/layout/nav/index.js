@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'frontity';
+import Link from '@frontity/components/link';
 
 import {
   NavContainer,
@@ -19,7 +20,9 @@ const Nav = ({ state }) => {
           if (!item.child_items) {
             return (
               <NavItem key={item.ID}>
-                {item.title} {/* need link item */}
+                <Link link={item.url}>
+                  {item.title}
+                </Link>
               </NavItem>
             );
           } else {
