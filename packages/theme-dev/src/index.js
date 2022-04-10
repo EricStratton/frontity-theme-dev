@@ -1,4 +1,5 @@
 import Root from './components';
+import iframe from '@frontity/html2react/processors/iframe'
 
 import menuHandler from './handlers/menu-handler';
 import card from './processors/card';
@@ -13,6 +14,7 @@ export default {
       autoPrefetch: 'in-view',
       menu: [],
       menuUrl: 'main',
+      footerUrl: 'main',
       colors: {
         bodyBg: '#eff1f3',
         tumble: '#d8b4a0',
@@ -25,13 +27,18 @@ export default {
   actions: {
     theme: {
       beforeSSR: async ({ state, actions }) => {
-        await actions.source.fetch(`/menu/${state.theme.menuUrl}`);
+        await Promise.all(
+          [
+            actions.source.fetch(`/menu/${state.theme.menuUrl}`),
+            actions.source.fetch(`/footer/${state.theme.footerUrl}`),
+          ],
+        )
       },
     },
   },
   libraries: {
     html2react: {
-      processors: [card],
+      processors: [iframe, card],
     },
     source: {
       handlers: [menuHandler],
