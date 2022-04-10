@@ -16,7 +16,26 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://frontitythemedev.local"
+          "url": "http://frontitythemedev.local",
+          "postTypes": [
+            {
+              type: 'footer',
+              endpoint: 'footer',
+              archive: '/footers'
+            },
+            {
+              type: 'about_post',
+              endpoint: 'about_post',
+              archive: '/about_posts'
+            }
+          ],
+          taxonomies: [
+            {
+              taxonomy: 'footers',
+              endpoint: 'footer',
+              postTypeEndpoint: 'footers',
+            }
+          ]
         }
       }
     },
