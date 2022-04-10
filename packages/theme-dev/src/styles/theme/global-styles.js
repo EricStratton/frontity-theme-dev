@@ -35,6 +35,31 @@ const cssReset = css`
 `;
 
 const documentSetup = (colors) => css`
+  :root {
+    /* Fluid Headings */
+    --fluid-reduction: 0.5;
+    --fluid-view-width: 4vw;
+    --type-scale-h1-max: 4.209rem;
+    --type-scale-h2-max: 3.157rem;
+    --type-scale-h3-max: 2.369rem;
+    --type-scale-h4-max: 1.777rem;
+    --type-scale-h1-scaler: calc(var(--type-scale-h1-max) - calc(var(--type-scale-h1-max) * var(--fluid-reduction)) + var(--fluid-view-width));
+    --type-scale-h2-scaler: calc(var(--type-scale-h2-max) - calc(var(--type-scale-h2-max) * var(--fluid-reduction)) + var(--fluid-view-width));
+    --type-scale-h3-scaler: calc(var(--type-scale-h3-max) - calc(var(--type-scale-h3-max) * var(--fluid-reduction)) + calc(var(--fluid-view-width) / 1.5));
+    --type-scale-h4-scaler: calc(var(--type-scale-h4-max) - calc(var(--type-scale-h4-max) * var(--fluid-reduction)) + calc(var(--fluid-view-width) / 1.5));
+    --type-scale-h1-min: calc(var(--type-scale-h1-max) * var(--fluid-reduction));
+    --type-scale-h2-min: calc(var(--type-scale-h2-max) * var(--fluid-reduction));
+    --type-scale-h3-min: calc(var(--type-scale-h3-max) * var(--fluid-reduction));
+    --type-scale-h4-min: calc(var(--type-scale-h4-max) * var(--fluid-reduction));
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
   html {
     font-size: 62.5%;
     min-width: 20em;
@@ -50,16 +75,32 @@ const documentSetup = (colors) => css`
     text-align: left;
   }
   main {
-    display: block;
+    min-height: calc(100vh - 14em);
+  }
+  body * {
+    line-height: calc(2px + 2ex + 2px);
+  }
+  h1, h2, h3, h4, p, li {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  }
+  h1, h2, h3, h4 {
+    margin: 1em 0 0.5em 0;
   }
   h1 {
-    font-size: clamp(3.2rem, 2.6760vw - 1.1rem, 4.8rem);
+    font-size: clamp(var(--type-scale-h1-min), var(--type-scale-h1-scaler), var(--type-scale-h1-max));
   }
   h2 {
-    font-size: clamp(2.6rem, 2.6760vw - 1.1rem, 4.0rem);
+    font-size: clamp(var(--type-scale-h2-min), var(--type-scale-h2-scaler), var(--type-scale-h2-max));
   }
   h3 {
-    font-size: clamp(2.0rem, 2.6760vw - 1.1rem, 3.2rem);
+    font-size: clamp(var(--type-scale-h3-min), var(--type-scale-h3-scaler), var(--type-scale-h3-max));
+  }
+  h4 {
+    font-size: clamp(var(--type-scale-h4-min), var(--type-scale-h4-scaler), var(--type-scale-h4-max));
+  }
+  P {
+    margin: 0 0 0.65em 0;
   }
 `;
 
@@ -87,8 +128,8 @@ const layoutStyles = (colors) => css`
   .wp-block-column.is-vertically-aligned-center {
     align-self: center;
   }
-  .wp-block-group > h2 {
-    margin: 0 0 1em 0;
+  .wp-block-columns .wp-block-column {
+    flex: 1;
   }
   .wp-block-buttons .wp-block-button {
     display: inline-block;
@@ -136,9 +177,6 @@ const layoutStyles = (colors) => css`
   .wp-block-group .hero-text {
     margin-bottom: 2em;
   }
-  .wp-block-group .hero-text .is-hero-heading {
-    margin-bottom: 0.5em;
-  }
   /***********************
   *** Services Targets ***
   ************************/
@@ -183,6 +221,12 @@ const componentStyles = (colors) => css`
     border: 2px solid ${colors.gunmetal};
     background-color: transparent;
     color: ${colors.gunmetal}
+  }
+  /**************
+  *** Iframes ***
+  **************/
+  iframe {
+    width: 100%;
   }
 `;
 
