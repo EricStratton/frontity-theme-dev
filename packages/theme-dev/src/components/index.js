@@ -12,6 +12,7 @@ const Root = ({ state }) => {
   const colors = state.theme.colors;
   const fixedGutembergStyle = fixCss(gutembergStyle);
   const fixedGutembergTheme = fixCss(gutembergTheme);
+  const data = state.source.get(state.router.link);
 
   return (
     <>
@@ -19,7 +20,7 @@ const Root = ({ state }) => {
       <Global styles={css(fixedGutembergTheme)} />
       <Global styles={globalStyle(colors)} />
       <Layout>
-          <PostList />
+          <PostList data={data} />
       </Layout>
     </>
   );
