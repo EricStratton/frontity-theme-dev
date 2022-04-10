@@ -6,8 +6,7 @@ import {
   ListContainer,
 } from './list-elements';
 
-const PostList = ({ state }) => {
-  const data = state.source.get(state.router.link);
+const PostList = ({ state, data }) => {
 
   return (
     <ListContainer>
