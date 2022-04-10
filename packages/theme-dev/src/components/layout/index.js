@@ -1,19 +1,17 @@
 import React from 'react';
-import { connect } from 'frontity';
 
 import Header from './header';
 import Footer from './footer';
 
-const Layout = ({ state, children }) => {
-  const colors = state.theme.colors;
-  
+const Layout = ({ children }) => {
+
   return (
     <>
-      <Header colors={colors} />
+      <Header />
         {children}
-      <Footer colors={colors} />
+      <Footer />
     </>
   )
 }
 
-export default connect(Layout);
+export default Layout;
