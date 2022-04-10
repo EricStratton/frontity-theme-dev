@@ -26,7 +26,7 @@ const settings = {
             {
               type: 'about_post',
               endpoint: 'about_post',
-              archive: '/about_posts'
+              archive: '/about'
             }
           ],
           taxonomies: [
