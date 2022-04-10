@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'frontity';
 
 import Nav from './../nav';
 import { 
@@ -6,7 +7,9 @@ import {
   NavWrapper,
 } from './header-elements';
 
-const Header = ({ colors }) => {
+const Header = ({ state }) => {
+  const colors = state.theme.colors;
+
   return (
     <HeaderContainer color={colors.grey}>
       <NavWrapper>
@@ -16,4 +19,4 @@ const Header = ({ colors }) => {
   )
 }
 
-export default Header;
+export default connect(Header);
