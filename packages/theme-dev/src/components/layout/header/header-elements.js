@@ -10,5 +10,5 @@ export const HeaderContainer = styled.header`
 `;
 
 export const NavWrapper = styled.div`
-  
+  height: 100%;
 `;

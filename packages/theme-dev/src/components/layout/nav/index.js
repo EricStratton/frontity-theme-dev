@@ -12,7 +12,8 @@ import {
 
 const Nav = ({ state }) => {
   const items = state.source.get(`/menu/${state.theme.menuUrl}/`).items;
-
+  const currentLocation = state.router.link === '/' ? state.router.link : state.router.link.slice(0, -1);
+  
   return (
     <NavContainer>
       <NavMenu>
@@ -20,7 +21,7 @@ const Nav = ({ state }) => {
           if (!item.child_items) {
             return (
               <NavItem key={item.ID}>
-                <Link link={item.url}>
+                <Link link={item.url} className={currentLocation === item.url ? 'active' : ''}>
                   {item.title}
                 </Link>
               </NavItem>
