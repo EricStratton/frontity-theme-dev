@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
   
   & > .wp-block-image {
     align-self: center;
+    margin-top: 1em;
   }
 
   & > .card-text {
